@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>914dfd43-7534-48fa-ab5a-8053f13e35c8</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="AllJoynBusObjectManager.cpp" />
+    <ClCompile Include="AllJoynHelpers.cpp" />
+    <ClCompile Include="TVConsumer.cpp" />
+    <ClCompile Include="TVProducer.cpp" />
+    <ClCompile Include="TVServiceEventAdapter.cpp" />
+    <ClCompile Include="TVServiceEventArgs.cpp" />
+    <ClCompile Include="TVSignals.cpp" />
+    <ClCompile Include="TVWatcher.cpp" />
+    <ClCompile Include="TypeConversionHelpers.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="AllJoynBusObjectManager.h" />
+    <ClInclude Include="AllJoynHelpers.h" />
+    <ClInclude Include="ITVService.h" />
+    <ClInclude Include="TVConsumer.h" />
+    <ClInclude Include="TVEventArgs.h" />
+    <ClInclude Include="TVMethodResults.h" />
+    <ClInclude Include="TVProducer.h" />
+    <ClInclude Include="TVServiceEventAdapter.h" />
+    <ClInclude Include="TVServiceEventArgs.h" />
+    <ClInclude Include="TVSignals.h" />
+    <ClInclude Include="TVStructures.h" />
+    <ClInclude Include="TVWatcher.h" />
+    <ClInclude Include="TypeConversionHelpers.h" />
+  </ItemGroup>
+</Project>
