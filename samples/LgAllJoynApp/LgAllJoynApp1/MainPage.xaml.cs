@@ -78,7 +78,7 @@ namespace LgAllJoynApp1
                 if (joinResult.Status == AllJoynStatus.Ok)
                 {
                     this._lamp = joinResult.Consumer;
-                    //LampOff();
+                    //LampOn();
                 };
             };
 
@@ -92,6 +92,16 @@ namespace LgAllJoynApp1
 
             await this._lamp.SetBrightnessAsync(0);
         }
+
+        private async void LampOn()
+        {
+            if (_lamp == null) return;
+
+            // 10%
+            await this._lamp.SetBrightnessAsync(569451008);
+        }
+
+        
 
         private async void Watcher_Added1(TVWatcher sender, AllJoynServiceInfo args)
         {
@@ -128,6 +138,9 @@ namespace LgAllJoynApp1
                         break;
                     case BotCommands.TvChannelDown:
                         ChannelDown();
+                        break;
+                    case BotCommands.TurnLampOn:
+                        LampOn();
                         break;
                     case BotCommands.TurnLampOff:
                         LampOff();

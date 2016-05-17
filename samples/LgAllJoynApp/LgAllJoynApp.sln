@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LgAllJoynApp1", "LgAllJoynApp1\LgAllJoynApp1.csproj", "{C4DBBD56-2CB1-411A-B228-B6A0581C30C8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "org.alljoyn.Launch", "org.alljoyn.Launch\org.alljoyn.Launch.vcxproj", "{C790A9CA-A639-466A-9A4D-3634832D680B}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "org.alljoyn.Notification", "org.alljoyn.Notification\org.alljoyn.Notification.vcxproj", "{F28415BE-EE64-4A18-AB9E-18B49BAA329B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "com.lg.Control.TV", "com.lg.Control.TV\com.lg.Control.TV.vcxproj", "{595D71A7-A3A7-41D9-8903-EB261F447F99}"
@@ -45,20 +43,6 @@ Global
 		{C4DBBD56-2CB1-411A-B228-B6A0581C30C8}.Release|x86.ActiveCfg = Release|x86
 		{C4DBBD56-2CB1-411A-B228-B6A0581C30C8}.Release|x86.Build.0 = Release|x86
 		{C4DBBD56-2CB1-411A-B228-B6A0581C30C8}.Release|x86.Deploy.0 = Release|x86
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Debug|ARM.ActiveCfg = Debug|ARM
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Debug|ARM.Build.0 = Debug|ARM
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Debug|x64.ActiveCfg = Debug|x64
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Debug|x64.Build.0 = Debug|x64
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Debug|x86.ActiveCfg = Debug|Win32
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Debug|x86.Build.0 = Debug|Win32
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Release|Any CPU.ActiveCfg = Release|Win32
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Release|ARM.ActiveCfg = Release|ARM
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Release|ARM.Build.0 = Release|ARM
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Release|x64.ActiveCfg = Release|x64
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Release|x64.Build.0 = Release|x64
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Release|x86.ActiveCfg = Release|Win32
-		{C790A9CA-A639-466A-9A4D-3634832D680B}.Release|x86.Build.0 = Release|Win32
 		{F28415BE-EE64-4A18-AB9E-18B49BAA329B}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{F28415BE-EE64-4A18-AB9E-18B49BAA329B}.Debug|ARM.ActiveCfg = Debug|ARM
 		{F28415BE-EE64-4A18-AB9E-18B49BAA329B}.Debug|ARM.Build.0 = Debug|ARM
