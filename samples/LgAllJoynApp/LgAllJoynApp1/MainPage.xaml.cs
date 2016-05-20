@@ -49,22 +49,19 @@ namespace LgAllJoynApp1
             InitializeBotCommandsProxy();
         }
 
-        private async void ChannelUp()
-        {
-            if (_tv == null) return;
-            await _tv.UpChannelAsync();
-        }
-
-        private async void ChannelDown()
-        {
-            if (_tv == null) return;
-            await _tv.DownChannelAsync();
-        }
-
         private void FindTv()
         {
             TVWatcher watcher = new TVWatcher(new AllJoynBusAttachment());
-            watcher.Added += Watcher_Added1;
+            watcher.Added += async (sender, args) =>
+            {
+                var joinResult = await TVConsumer.JoinSessionAsync(args, sender);
+
+                if (joinResult.Status == AllJoynStatus.Ok)
+                {
+                    this._tv = joinResult.Consumer;
+                    txtTv.Text = "[LG] webOS TV LF653V: найдено";
+                };
+            };
             watcher.Start();
         }
 
@@ -78,39 +75,35 @@ namespace LgAllJoynApp1
                 if (joinResult.Status == AllJoynStatus.Ok)
                 {
                     this._lamp = joinResult.Consumer;
-                    //LampOn();
+                    txtLamp.Text = "LIFX Color 1000 BR30: найдено";
                 };
             };
-
             watcher.Start();
+        }
 
+        private async void ChannelUp()
+        {
+            if (_tv == null) return;
+            await _tv.UpChannelAsync();
+        }
+
+        private async void ChannelDown()
+        {
+            if (_tv == null) return;
+            await _tv.DownChannelAsync();
         }
 
         private async void LampOff()
         {
             if (_lamp == null) return;
-
             await this._lamp.SetBrightnessAsync(0);
         }
 
         private async void LampOn()
         {
             if (_lamp == null) return;
-
             // 10%
             await this._lamp.SetBrightnessAsync(569451008);
-        }
-
-        
-
-        private async void Watcher_Added1(TVWatcher sender, AllJoynServiceInfo args)
-        {
-            var joinResult = await TVConsumer.JoinSessionAsync(args, sender);
-
-            if (joinResult.Status == AllJoynStatus.Ok)
-            {
-                this._tv = joinResult.Consumer;
-            };
         }
 
         private void ChannelUpClick(object sender, RoutedEventArgs e)
@@ -150,7 +143,6 @@ namespace LgAllJoynApp1
                         break;
                 }
             });
-
             await connection.Start();
         }
     }

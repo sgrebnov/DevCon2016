@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Button Content="Предыдущий канал" Click="ChannelDownClick" Margin="10,100,0,227" Grid.ColumnSpan="2" Width="330" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
         <Button Content="Следующий канал" Click="ChannelUpClick" Margin="10,176,0,151" Width="330" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="10,10,0,0" TextWrapping="Wrap" Text="Обнаружен [LG] webOS TV LF653V " VerticalAlignment="Top" Width="297" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="-456,176,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtTv" HorizontalAlignment="Center" Margin="32,38,21,0" TextWrapping="Wrap" Text="[LG] webOS TV LF653V: поиск..." VerticalAlignment="Top" Width="297" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="txtLamp" HorizontalAlignment="Center" Margin="10,10,0,0" TextWrapping="Wrap" Text="LIFX Color 1000 BR30: поиск..." VerticalAlignment="Top" Width="297" Grid.ColumnSpan="2"/>
     </Grid>
 </Page>
