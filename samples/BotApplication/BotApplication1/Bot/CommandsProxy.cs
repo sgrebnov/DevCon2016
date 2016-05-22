@@ -29,7 +29,7 @@ namespace BotApplication1
         public static void Execute(string command)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<BotConnection>();
-            context.Clients.All.Send(command);
+            context.Clients.All.OnBotCommand(command);
         }
     }
 }

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using Windows.Devices.AllJoyn;
+using Windows.Foundation;
+using System.Threading.Tasks;
 
 namespace LgAllJoynApp1
 {
@@ -10,10 +12,23 @@ namespace LgAllJoynApp1
         private static NotificationProducer _producer;
         private static int id = 0;
 
+        public class NotificationService : INotificationService
+        {
+            public IAsyncOperation<NotificationGetVersionResult> GetVersionAsync(AllJoynMessageInfo info)
+            {
+                Task<NotificationGetVersionResult> task = new Task<NotificationGetVersionResult>(() =>
+                {
+                    return NotificationGetVersionResult.CreateSuccessResult(1);
+                });
+
+                task.Start();
+                return task.AsAsyncOperation();
+            }
+        }
+
         public static void Send(string message) {
 
             if (_producer == null) {
-
                 AllJoynBusAttachment busAttachment = new AllJoynBusAttachment();
 
                 _producer = new NotificationProducer(busAttachment);

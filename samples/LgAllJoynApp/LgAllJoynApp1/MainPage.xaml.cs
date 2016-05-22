@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.Devices.AllJoyn;
-using org.alljoyn.Notification;
-using Windows.Foundation;
-using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR.Client;
 using com.lg.Control.TV;
 using org.allseen.LSF.LampState;
@@ -16,28 +12,11 @@ using System.Diagnostics;
 
 namespace LgAllJoynApp1
 {
-    public class NotificationService : INotificationService
-    {
-        public IAsyncOperation<NotificationGetVersionResult> GetVersionAsync(AllJoynMessageInfo info)
-        {
-            Task<NotificationGetVersionResult> task = new Task<NotificationGetVersionResult>(() =>
-            {
-                return NotificationGetVersionResult.CreateSuccessResult(1);
-            });
-
-            task.Start();
-            return task.AsAsyncOperation();
-        }
-    }
-
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
-        TVConsumer _tv;
-        LampStateConsumer _lamp;
 
         public MainPage()
         {
@@ -48,6 +27,9 @@ namespace LgAllJoynApp1
 
             InitializeBotCommandsProxy();
         }
+
+
+        private TVConsumer _tv;
 
         private void FindTv()
         {
@@ -64,6 +46,8 @@ namespace LgAllJoynApp1
             };
             watcher.Start();
         }
+
+        private LampStateConsumer _lamp;
 
         private void FindLamp()
         {
@@ -93,6 +77,16 @@ namespace LgAllJoynApp1
             await _tv.DownChannelAsync();
         }
 
+        private void ChannelUpClick(object sender, RoutedEventArgs e)
+        {
+            ChannelUp();
+        }
+
+        private void ChannelDownClick(object sender, RoutedEventArgs e)
+        {
+            ChannelDown();
+        }
+
         private async void LampOff()
         {
             if (_lamp == null) return;
@@ -106,24 +100,13 @@ namespace LgAllJoynApp1
             await this._lamp.SetBrightnessAsync(569451008);
         }
 
-        private void ChannelUpClick(object sender, RoutedEventArgs e)
-        {
-            ChannelUp();
-        }
-
-        private void ChannelDownClick(object sender, RoutedEventArgs e)
-        {
-            ChannelDown();
-        }
-
         private async void InitializeBotCommandsProxy()
         {
             var connection = new HubConnection("https://msdevcon2016-bot.azurewebsites.net/signalr");
 
             var hubProxy = connection.CreateHubProxy("BotConnection");
-            hubProxy.On<string>("Send", (arg) =>
+            hubProxy.On<string>("OnBotCommand", (arg) =>
             {
-
                 switch (arg)
                 {
                     case BotCommands.TvChannelUp:
