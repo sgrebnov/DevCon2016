@@ -1,0 +1,6 @@
+/ARM/
+/bin/
+/Debug/
+/obj/
+/.vs/
+*.csproj.user
