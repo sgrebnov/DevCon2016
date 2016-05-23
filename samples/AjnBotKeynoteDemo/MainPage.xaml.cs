@@ -24,7 +24,6 @@ namespace AjnBotKeynoteDemo
             InitializeBotCommandsProxy();
         }
 
-
         private LampStateConsumer _lamp;
 
         private void FindLamp()
@@ -42,7 +41,6 @@ namespace AjnBotKeynoteDemo
             };
             watcher.Start();
         }
-
 
         private async void LampOff(object sender, RoutedEventArgs e)
         {
@@ -81,7 +79,6 @@ namespace AjnBotKeynoteDemo
             await connection.Start();
         }
     }
-
 
     public class BotCommands
     {

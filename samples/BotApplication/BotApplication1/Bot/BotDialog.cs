@@ -46,7 +46,7 @@ namespace BotApplication1
                 return;
             }
 
-            if (message.Text.Contains(" свет") || message.Text.Contains(" lamp"))
+            if (message.Text.Contains(" свет") || message.Text.Contains(" lamp") || message.Text.Contains(" light"))
             {
                 HandleLampCommand(context, message);
                 return;
@@ -76,12 +76,12 @@ namespace BotApplication1
             if (message.Text.Contains(" off") || message.Text.Contains("выключи"))
             {
                 CommandsProxy.Execute(BotCommands.TurnLampOff);
-                await context.PostAsync("Выполнено! Свет был выключен");
+                await context.PostAsync("Done! The light has been switched off");
             }
             else if (message.Text.Contains(" on") || message.Text.Contains("включи"))
             {
                 CommandsProxy.Execute(BotCommands.TurnLampOn);
-                await context.PostAsync("Выполнено! Свет был включен");
+                await context.PostAsync("Done! The light has been switched on");
 
             }
             context.Wait(MessageReceivedAsync);
